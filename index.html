@@ -104,7 +104,14 @@
         <!-- Section 0: Overview -->
         <section id="overview" class="mb-16 scroll-mt-20">
             <h1 class="text-3xl sm:text-4xl font-bold text-teal-800 text-center mb-2">Build Your First AI Web App</h1>
-            <p class="text-center text-stone-600 mb-8 max-w-3xl mx-auto">Welcome! Today, you'll go from zero Python experience to building a functional web app that uses AI to predict diabetes entirely on your own computer. This guide will walk you through every step.</p>
+            <p class="text-center text-stone-600 mb-6 max-w-3xl mx-auto">Welcome! Today, you'll go from zero Python experience to building a functional web app that uses AI to predict diabetes entirely on your own computer. This guide will walk you through every step.</p>
+
+            <!-- Live Demo Button -->
+            <div class="text-center mb-10">
+                <a href="https://diabeteswebapp-nsbr48bgoryvsgpxuqw3he.streamlit.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-lg text-white bg-teal-600 hover:bg-teal-700 transition-colors shadow-md">
+                    🚀 View the Final App Demo
+                </a>
+            </div>
 
             <!-- PATH SELECTOR -->
             <div class="bg-white p-4 rounded-xl shadow-md border-2 border-teal-100 flex flex-col items-center justify-center mb-12">
@@ -242,7 +249,7 @@
             
             <!-- Python Path Content -->
             <div class="path-python-content bg-white p-6 rounded-lg shadow-md">
-                <p class="text-stone-600 mb-8">First, use your terminal to create a project folder and navigate inside it. Then, open your favorite text editor (like VS Code, Notepad++, or standard Notepad) to create a file named <code>train.py</code>.</p>
+                <p class="text-stone-600 mb-8">First, use your terminal to create a project folder and navigate inside it. Then open your favorite text editor (such as Notepad++ on Windows or BBEdit on macOS) to create a file named <code>train.py</code>.</p>
                 <div class="border-b border-stone-200 mb-4">
                     <nav class="flex flex-wrap -mb-px" id="part2-tabs">
                         <button data-target="panel-2-1" class="part2-tab active-tab text-sm font-medium text-center border-b-2 border-transparent px-4 py-3 text-stone-500 hover:text-stone-700 hover:border-stone-300">1. Install Libraries</button>
@@ -256,8 +263,12 @@
                 <div id="panel-2-1" class="part2-panel">
                     <h3 class="text-xl font-bold text-stone-700 mb-2">Goal: Install Necessary Libraries</h3>
                     <p class="text-stone-600 mb-4">Ensure your terminal is open and your <code>(mtid328)</code> environment is activated. We need to install the tools for data handling (`pandas`) and AI (`scikit-learn`).</p>
+                    <h4 class="font-semibold mb-2">Your Prompt for Gemini:</h4>
+                    <div class="prompt-block mb-4">
+                        <p>Give me the Python code to install the scikit-learn and pandas libraries using conda in a Terminal.</p>
+                    </div>
                     <h4 class="font-semibold mb-2">Run this in your terminal:</h4>
-                    <div class="terminal-block mb-4">pip install scikit-learn pandas</div>
+                    <div class="terminal-block mb-4">conda install scikit-learn pandas</div>
                     <h4 class="font-semibold mb-2">What's Happening?</h4>
                     <p class="text-stone-600">This command downloads and installs the two specified Python packages into your local virtual environment, making their functions available for us to use.</p>
                 </div>
@@ -267,9 +278,10 @@
                     <p class="text-stone-600 mb-4">Open your empty <code>train.py</code> file in your text editor. We'll start by adding code to load the Pima Indians Diabetes dataset.</p>
                     <h4 class="font-semibold mb-2">Your Prompt for Gemini:</h4>
                     <div class="prompt-block mb-4">
-                        <p>I am writing a local Python script. Give me the Python code using pandas to load the Pima Indians Diabetes dataset from this URL and display the first 5 rows: https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv<br><br>The dataset does not have column names. Please add them in this order: 'preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'.</p>
+                        <p>I need to load the Pima Indians Diabetes dataset. Give me the Python code using pandas to load it from this URL and display the first 5 rows: https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv<br><br>The dataset does not have column names. Please add them in this order: 'preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class'.</p>
                     </div>
-                    <h4 class="font-semibold mb-2">Add this to <code>train.py</code>:</h4>
+                    <h4 class="font-semibold mb-2">Expected Python Code:</h4>
+                    <p class="text-stone-600 mb-4">Add this to <code>train.py</code>.</p>
                     <div class="code-block mb-4">import pandas as pd
 
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
@@ -285,7 +297,8 @@ print(data.head())</div>
                     <div class="prompt-block mb-4">
                         <p>Using the pandas DataFrame from the previous step, show me how to separate it into features (X) and the target variable (y). The target variable is the 'class' column.</p>
                     </div>
-                    <h4 class="font-semibold mb-2">Add this to <code>train.py</code>:</h4>
+                    <h4 class="font-semibold mb-2">Expected Python Code:</h4>
+                    <p class="text-stone-600 mb-4">Add this to <code>train.py</code>.</p>
                     <div class="code-block mb-4">X = data.drop('class', axis=1)
 y = data['class']</div>
                 </div>
@@ -297,7 +310,8 @@ y = data['class']</div>
                     <div class="prompt-block mb-4">
                         <p>Now, add code to create and train a Logistic Regression model using scikit-learn. Use the X and y variables. Split the data so 70% is for training and 30% is for testing.</p>
                     </div>
-                    <h4 class="font-semibold mb-2">Add this to <code>train.py</code>:</h4>
+                    <h4 class="font-semibold mb-2">Expected Python Code:</h4>
+                    <p class="text-stone-600 mb-4">Add this to <code>train.py</code>.</p>
                     <div class="code-block mb-4">from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
@@ -314,7 +328,8 @@ print("Model trained successfully!")</div>
                     <div class="prompt-block mb-4">
                         <p>How do I save my trained scikit-learn model to a file named `diabetes_model.pkl` using the pickle library in Python?</p>
                     </div>
-                    <h4 class="font-semibold mb-2">Add this to the bottom of <code>train.py</code>:</h4>
+                    <h4 class="font-semibold mb-2">Expected Python Code:</h4>
+                    <p class="text-stone-600 mb-4">Add this to <code>train.py</code>.</p>
                     <div class="code-block mb-4">import pickle
 
 filename = 'diabetes_model.pkl'
@@ -387,7 +402,7 @@ print(f"Model saved to {filename}")</div>
                         <li>Load a trained Orange3 model from a file named `diabetes_model.pkcls` using pickle.</li>
                         <li>Display the title "Diabetes Prediction App".</li>
                         <li>Create sidebar sliders for a user to input data for 8 continuous features.</li>
-                        <li>Convert the slider inputs into an `Orange.data.Table` using the `model.domain` and the pandas DataFrame's numpy array.</li>
+                        <li>Convert the slider inputs into an `Orange.data.Table` by splitting the data into features (X) and a dummy target (Y).</li>
                         <li>Have a "Predict" button that uses the model to predict the outcome, and displays the result clearly.</li>
                     </ol>
                     </p>
@@ -447,6 +462,7 @@ if st.button('Predict'):
                         <!-- Orange3 Code Block -->
                         <div class="code-block text-xs h-96 overflow-y-auto path-orange-content path-hidden border-l-4 border-orange-500">import streamlit as st
 import pandas as pd
+import numpy as np
 import pickle
 import Orange
 
@@ -487,12 +503,11 @@ if st.button('Predict'):
     # Convert pandas DataFrame to Orange Table using the model's domain
     domain = model.domain
     
-    # Orange models expect the target column to exist, even for new predictions.
-    # We create a copy and add a dummy target column to prevent shape errors.
-    orange_df = input_df.copy()
-    orange_df['class'] = 0
+    # Orange expects features (X) and targets (Y) as separate arrays
+    X = input_df.to_numpy()
+    Y = np.zeros(1) # Dummy target required for prediction
     
-    input_table = Orange.data.Table(domain, orange_df.to_numpy())
+    input_table = Orange.data.Table.from_numpy(domain, X, Y=Y)
     
     prediction = model(input_table)
     
@@ -547,8 +562,8 @@ if st.button('Predict'):
                      <div>
                         <h3 class="text-xl font-bold text-stone-700 mb-2"><span class="text-teal-600">Step 2:</span> Install Web Libraries</h3>
                         <p class="text-stone-600 mb-2 text-sm">We need to install Streamlit to handle the UI, and the framework for our model.</p>
-                        <div class="terminal-block text-sm path-python-content">pip install streamlit scikit-learn pandas</div>
-                        <div class="terminal-block text-sm path-orange-content path-hidden">pip install streamlit orange3 pandas</div>
+                        <div class="terminal-block text-sm path-python-content">conda install streamlit scikit-learn pandas</div>
+                        <div class="terminal-block text-sm path-orange-content path-hidden">conda install streamlit orange3 pandas</div>
                     </div>
                      <div>
                         <h3 class="text-xl font-bold text-stone-700 mb-2"><span class="text-teal-600">Step 3:</span> Run the App</h3>
