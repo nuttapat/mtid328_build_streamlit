@@ -38,13 +38,9 @@ The workshop is divided into five core sections:
 
 ## 🚀 How to Use This Guide
 
-Since the guide is completely self-contained in a single HTML file, no installation is required to view the curriculum.
+1. Open this workshop guide from this URL: https://nuttapat.github.io/mtid328_build_streamlit/
 
-1. Download or clone this repository.
-
-2. Double-click the ```index.html``` file to open it in any modern web browser (Chrome, Firefox, Safari, Edge).
-
-3. Follow the interactive steps on-screen.
+2. Follow the interactive steps on-screen.
 
 ### Prerequisites for Students taking the Workshop
 
